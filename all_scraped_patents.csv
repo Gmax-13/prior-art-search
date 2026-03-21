@@ -1,0 +1,37 @@
+patent_id,title,abstract,ipc_codes,cpc_codes,citations,publication_year
+P001,Semantic patent search system,A patent search platform using semantic similarity and NLP techniques,G06F 40/30,G06F 40/30,P010,2023
+P002,Patent search using embeddings,A system for patent search based on semantic similarity of documents,G06F 40/30,G06F 40/30,P001,2022
+P003,NLP based patent similarity engine,An NLP driven approach for patent similarity detection and search,G06F 40/30,G06F 40/30,P001,2021
+P004,Automated prior art search,Automated prior art search using semantic similarity and NLP,G06F 40/30,G06F 40/30,P001,2023
+P005,Hybrid patent search framework,A hybrid patent search framework combining keyword search and semantic similarity,G06F 40/30,G06F 40/30,P002,2022
+P006,Patent document similarity analysis,Analyzing patent similarity using NLP based embeddings,G06F 40/30,G06F 40/30,P003,2021
+P007,Semantic analysis of patent texts,Semantic analysis and similarity scoring of patent documents,G06F 40/30,G06F 40/30,P006,2020
+P008,Patent retrieval system,A patent retrieval system optimized for semantic similarity search,G06F 40/30,G06F 40/30,P005,2021
+P009,Patent novelty detection system,Detecting patent novelty using semantic similarity and NLP,G06F 40/30,G06F 40/30,P004,2023
+P010,Intelligent patent search engine,An intelligent patent search engine using NLP and semantic similarity,G06F 40/30,G06F 40/30,P001,2022
+
+P011,Text similarity engine for patents,A text similarity engine designed for patent search applications,G06F 40/30,G06F 40/30,P010,2021
+P012,Document similarity for intellectual property,Document similarity analysis for patent search systems,G06F 40/30,G06F 40/30,P011,2020
+P013,Semantic document retrieval,Semantic document retrieval using NLP for patent databases,G06F 40/30,G06F 40/30,P012,2022
+P014,Patent search optimization,Optimizing patent search using semantic similarity ranking,G06F 16/95,G06F 16/95,P005,2021
+P015,AI powered patent analysis,AI powered patent analysis using NLP and semantic similarity,G06F 40/30,G06F 40/30,P009,2023
+
+P016,Image recognition system,Image recognition using convolutional neural networks,G06K 9/62,G06K 9/62,P020,2019
+P017,Image similarity detection,Image similarity detection using deep learning embeddings,G06K 9/62,G06K 9/62,P016,2020
+P018,Content based image retrieval,Content based image retrieval using visual similarity,G06K 9/62,G06K 9/62,P017,2021
+P019,Food recognition system,Food recognition using CNN based image analysis,G06K 9/62,G06K 9/62,P016,2019
+P020,Industrial defect detection,Defect detection in manufacturing using vision systems,G06K 9/46,G06K 9/46,P018,2021
+
+P021,Keyword based document search,Keyword based document search for large text collections,G06F 16/95,G06F 16/95,P014,2018
+P022,Search ranking optimization,Search ranking optimization using relevance scoring,G06F 16/95,G06F 16/95,P021,2019
+P023,Text search engine,Text search engine for structured and unstructured data,G06F 16/95,G06F 16/95,P022,2020
+
+P024,Legal document analysis,Analysis of legal documents using NLP techniques,G06F 40/30,G06F 40/30,P011,2021
+P025,Patent text mining,Patent text mining using NLP and semantic similarity,G06F 40/30,G06F 40/30,P024,2022
+P026,Patent analytics platform,Patent analytics platform for search and similarity analysis,G06F 40/30,G06F 40/30,P025,2023
+
+P027,Speech recognition system,Speech recognition using deep learning models,G10L 15/22,G10L 15/22,P030,2019
+P028,Voice controlled assistant,Voice controlled assistant using speech recognition,G10L 15/22,G10L 15/22,P027,2020
+
+P029,Autonomous vehicle navigation,Navigation system for autonomous vehicles using sensor fusion,G05D 1/02,G05D 1/02,P031,2018
+P030,Smart energy analytics,Energy consumption analytics using smart meters,G06Q 50/06,G06Q 50/06,P032,2020

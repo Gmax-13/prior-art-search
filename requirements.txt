@@ -1,0 +1,22 @@
+# Prior Art Search — Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Environment variable loading
+python-dotenv>=1.0.0
+
+# Core data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Machine learning — retrieval stage
+scikit-learn>=1.3.0
+
+# Semantic search — bi-encoder + cross-encoder
+sentence-transformers>=3.0.0
+peft>=0.9.0
+
+# LLM API — patent analysis report
+groq>=0.9.0
+
+# PDF report generation
+reportlab>=4.0.0

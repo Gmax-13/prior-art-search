@@ -1,0 +1,25 @@
+# Prior Art Search — Environment Variables Template
+# Copy this file to .env and fill in your actual values.
+# .env is listed in .gitignore and will never be committed.
+
+# ── Groq API ─────────────────────────────────────────────────────────────────
+# Get your free key from: https://console.groq.com
+# Note: Groq console is geo-restricted in some regions.
+# Use a VPN connected to the Netherlands if access is blocked.
+# The API itself (api.groq.com) works globally without a VPN.
+GROQ_API_KEY=your_groq_api_key_here
+
+# ── HuggingFace model cache ───────────────────────────────────────────────────
+# Directory where SPECTER and CrossEncoder models are stored after first download.
+# Requires ~525 MB of free space. Change to any preferred location.
+# Windows example : D:/huggingface_cache
+# macOS / Linux   : /home/yourname/.cache/huggingface
+HF_HOME=D:/huggingface_cache
+
+# ── HuggingFace settings ──────────────────────────────────────────────────────
+# Suppress symlink warning on Windows (safe to leave as 1)
+HF_HUB_DISABLE_SYMLINKS_WARNING=1
+
+# Use locally cached models only — prevents network calls on every run.
+# Set to 0 only when you want to check for model updates.
+HF_HUB_OFFLINE=1

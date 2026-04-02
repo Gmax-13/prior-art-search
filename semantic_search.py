@@ -45,7 +45,7 @@ logger = logging.getLogger(__name__)
 # Constants
 # ---------------------------------------------------------------------------
 
-MAHALANOBIS_MIN_CORPUS   = 500    # minimum patents for stable covariance estimation
+MAHALANOBIS_MIN_CORPUS   = 5000   # minimum patents for stable covariance estimation (RAM-intensive)
 MAHALANOBIS_REGULARIZE   = 1e-5   # lambda * I added to covariance before inversion
 TFIDF_SVD_COMPONENTS     = 128    # LSA dimensions for TF-IDF fallback
 CITATION_FUSION_ALPHA    = 0.7    # weight on semantic score; (1-alpha) on citation score
@@ -98,11 +98,11 @@ class SPECTER2Embedder:
         self.model = SentenceTransformer(SPECTER2_MODEL)
         logger.info("Model loaded.")
 
-    def encode(self, texts: list, batch_size: int = 64) -> np.ndarray:
+    def encode(self, texts: list, batch_size: int = 8) -> np.ndarray:
         embeddings = self.model.encode(
             texts,
             batch_size=batch_size,
-            show_progress_bar=len(texts) > 50,
+            show_progress_bar=len(texts) > 10,
             normalize_embeddings=True,   # unit norm for cosine/Mahalanobis
             convert_to_numpy=True,
         )
@@ -363,7 +363,7 @@ def semantic_search(
     top_k_retrieval: int = RETRIEVAL_SHORTLIST_K,
     top_n_final:    int  = 5,      # final results returned
     alpha:          float = CITATION_FUSION_ALPHA,
-    batch_size:     int   = 64,
+    batch_size:     int   = 8,
 ):
     # --- Load data ---
     candidates_df = pd.read_csv(citation_csv)
@@ -396,11 +396,12 @@ def semantic_search(
     query_vec       = all_embeddings[0]             # (d,)
     cand_vecs       = all_embeddings[1:]            # (n_candidates, d)
 
-    # Covariance inverse from full corpus (only if corpus large enough)
+    # Covariance inverse — only on very large corpora to avoid OOM on CPU
+    # Uses candidate embeddings only (not full corpus) to keep memory low
     cov_inv = None
     if corpus_size >= MAHALANOBIS_MIN_CORPUS:
-        corpus_embeddings = embedder.encode(corpus_texts, batch_size=batch_size)
-        cov_inv = compute_covariance_inverse(corpus_embeddings)
+        logger.info("Estimating covariance from candidate embeddings (memory-efficient)...")
+        cov_inv = compute_covariance_inverse(cand_vecs)
 
     # Retrieval scores
     retrieval_scores = retrieval_stage(query_vec, cand_vecs, corpus_size, cov_inv)

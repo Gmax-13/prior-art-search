@@ -51,7 +51,7 @@ GROQ_API_KEY  = os.getenv("GROQ_API_KEY", "YOUR_GROQ_API_KEY_HERE")  # set in .e
 GROQ_MODEL    = "llama-3.3-70b-versatile"   # free, 131K context window
 
 INPUT_CSV     = "input.csv"
-PATENTS_CSV   = "all_scraped_patents.csv"
+PATENTS_CSV   = "all_scrapped_patents.csv"
 
 # All outputs go here — folder is created automatically on first run
 OUTPUT_DIR    = "Output"
@@ -60,7 +60,7 @@ OUTPUT_DIR    = "Output"
 CLASSIFIED_CSV = f"{OUTPUT_DIR}/classified_patents.csv"
 KEYWORD_CSV    = f"{OUTPUT_DIR}/keyword_filtered_patents.csv"
 CITATION_CSV   = f"{OUTPUT_DIR}/citation_expanded_patents.csv"
-FINAL_CSV      = f"{OUTPUT_DIR}/final_results.csv"
+FINAL_CSV      = f"{OUTPUT_DIR}/output.csv"
 PDF_REPORT     = f"{OUTPUT_DIR}/patent_analysis_report.pdf"
 
 # Stage parameters
@@ -347,7 +347,7 @@ def run_pipeline():
     print(f"  Classified patents : {CLASSIFIED_CSV}")
     print(f"  Keyword filtered   : {KEYWORD_CSV}")
     print(f"  Citation expanded  : {CITATION_CSV}")
-    print(f"  Final results      : {FINAL_CSV}")
+    print(f"  Final output       : {FINAL_CSV}")
     print(f"  Text report        : {OUTPUT_DIR}/patent_analysis_report.txt")
     print(f"  PDF report         : {PDF_REPORT}")
     print()

@@ -18,12 +18,13 @@ def keyword_search(
     top_n=20
 ):
     keywords = load_keywords(input_csv)
-    df = pd.read_csv(classified_csv)
+    df = pd.read_csv(classified_csv, dtype=str)
 
     def keyword_score(row):
-        score = 0
-        title = str(row["title"]).lower()
-        abstract = str(row["abstract"]).lower()
+        score    = 0
+        # Null safety: fillna before str conversion to avoid "nan" matching keywords
+        title    = "" if (not row.get("title")    or str(row["title"]).lower()    == "nan") else str(row["title"]).lower()
+        abstract = "" if (not row.get("abstract") or str(row["abstract"]).lower() == "nan") else str(row["abstract"]).lower()
 
         for kw in keywords:
             score += title.count(kw) * 3
